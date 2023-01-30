@@ -6,7 +6,7 @@ import shutil
 import pytest
 
 # Formatting of testing log messages.
-from dls_logformatter.dls_logformatter import DlsLogform
+from dls_logformatter.dls_logformatter import DlsLogformatter
 
 # Version of the package.
 from dls_mainiac_lib.version import meta as version_meta
@@ -39,7 +39,7 @@ def constants(request):
 @pytest.fixture()
 def logging_setup():
 
-    formatter = DlsLogform(type="long")
+    formatter = DlsLogformatter(type="long")
     handler = logging.StreamHandler()
     handler.setFormatter(formatter)
     logging.getLogger().addHandler(handler)

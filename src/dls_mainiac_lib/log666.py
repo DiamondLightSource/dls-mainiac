@@ -6,7 +6,7 @@ import os
 import threading
 
 # Log formatter.
-from dls_logformatter.dls_logformatter import DlsLogform
+from dls_logformatter.dls_logformatter import DlsLogformatter
 
 
 # -------------------------------------------------------------------------
@@ -58,7 +58,7 @@ class Log666:
         )
 
         # Let logging write custom formatted messages to stdout.
-        logfile_handler.setFormatter(DlsLogform())
+        logfile_handler.setFormatter(DlsLogformatter())
         logging.getLogger().addHandler(logfile_handler)
 
         return logfile_handler

@@ -15,7 +15,7 @@ import threading
 from string import Template
 
 # Log formatter.
-from dls_logformatter.dls_logformatter import DlsLogform
+from dls_logformatter.dls_logformatter import DlsLogformatter
 from dls_logformatter.functions import format_exception_causes
 
 # Rotating log file.
@@ -383,12 +383,12 @@ class Mainiac:
 
                 if console_verbose:
                     # Let logging write custom formatted messages to stdout, long format.
-                    formatter = DlsLogform()
+                    formatter = DlsLogformatter()
                     console_handler.setFormatter(formatter)
                     # Log level for the console, verbose
                     console_handler.setLevel(logging.DEBUG)
                 else:
-                    formatter = DlsLogform(type="bare")
+                    formatter = DlsLogformatter(type="bare")
                     console_handler.setFormatter(formatter)
                     # Log level for the console, not verbose.
                     console_handler.setLevel(logging.INFO)
@@ -442,7 +442,7 @@ class Mainiac:
                     host, port, debugging_fields=False
                 )
                 # We want "format" of separate indices for the database.
-                graypy_handler.setFormatter(DlsLogform(type="dls"))
+                graypy_handler.setFormatter(DlsLogformatter(type="dls"))
                 graypy_handler.setLevel(logging.DEBUG)
                 logging.getLogger().addHandler(graypy_handler)
 
