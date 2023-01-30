@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dls_mainiac_lib.mainiac &#8212; dls-mainiac 0.1.dev3+g2db3ba4 documentation</title>
+    <title>dls_mainiac_lib.mainiac &#8212; dls-mainiac 0.1.dev4+g5f41de4 documentation</title>
   
   
   
@@ -299,7 +299,7 @@
 <span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
 
 <span class="c1"># Log formatter.</span>
-<span class="kn">from</span> <span class="nn">dls_logformatter.dls_logformatter</span> <span class="kn">import</span> <span class="n">DlsLogform</span>
+<span class="kn">from</span> <span class="nn">dls_logformatter.dls_logformatter</span> <span class="kn">import</span> <span class="n">DlsLogformatter</span>
 <span class="kn">from</span> <span class="nn">dls_logformatter.functions</span> <span class="kn">import</span> <span class="n">format_exception_causes</span>
 
 <span class="c1"># Rotating log file.</span>
@@ -667,12 +667,12 @@
 
                 <span class="k">if</span> <span class="n">console_verbose</span><span class="p">:</span>
                     <span class="c1"># Let logging write custom formatted messages to stdout, long format.</span>
-                    <span class="n">formatter</span> <span class="o">=</span> <span class="n">DlsLogform</span><span class="p">()</span>
+                    <span class="n">formatter</span> <span class="o">=</span> <span class="n">DlsLogformatter</span><span class="p">()</span>
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
                     <span class="c1"># Log level for the console, verbose</span>
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">formatter</span> <span class="o">=</span> <span class="n">DlsLogform</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bare&quot;</span><span class="p">)</span>
+                    <span class="n">formatter</span> <span class="o">=</span> <span class="n">DlsLogformatter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;bare&quot;</span><span class="p">)</span>
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
                     <span class="c1"># Log level for the console, not verbose.</span>
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
@@ -726,7 +726,7 @@
                     <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">debugging_fields</span><span class="o">=</span><span class="kc">False</span>
                 <span class="p">)</span>
                 <span class="c1"># We want &quot;format&quot; of separate indices for the database.</span>
-                <span class="n">graypy_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">DlsLogform</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;dls&quot;</span><span class="p">))</span>
+                <span class="n">graypy_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">DlsLogformatter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;dls&quot;</span><span class="p">))</span>
                 <span class="n">graypy_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">graypy_handler</span><span class="p">)</span>
 
