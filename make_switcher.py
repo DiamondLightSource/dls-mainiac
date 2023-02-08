@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.4.0.
+# ********** It has been generated automatically by dae_devops version 0.5.1.
 # ********** For repository_name dls-mainiac
 
 import json
@@ -102,4 +102,4 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 
-# dae_devops_fingerprint a7c9eb848d5086fa20df46c482dd2a83
+# dae_devops_fingerprint 75c26c15a22cf5b8575c43e1f1d02377
