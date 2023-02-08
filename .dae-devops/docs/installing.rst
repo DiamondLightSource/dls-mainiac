@@ -1,16 +1,16 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.4.0.
+.. # ********** It has been generated automatically by dae_devops version 0.5.1.
 .. # ********** For repository_name dls-mainiac
 
 Installing
 =======================================================================
 
 
-You will need python 3.8 or later. 
+You will need python 3.9 or later. 
 
-On a Diamond Light Source internal computer, you can achieve Python 3.8 by::
+On a Diamond Light Source internal computer, you can achieve Python 3.9 by::
 
-    $ module load python/3.8
+    $ module load python/3.9
 
 You can check your version of python by typing into a terminal::
 
@@ -40,4 +40,4 @@ You can check the version that has been installed by typing::
     $ dls-mainiac --version
     $ dls-mainiac --version-json
 
-.. # dae_devops_fingerprint 506ea59a5f74cfe90cf3154c082a3801
+.. # dae_devops_fingerprint 662dc0ddb3ea386061a3c93ecb892946

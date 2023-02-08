@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.4.0.
+.. # ********** It has been generated automatically by dae_devops version 0.5.1.
 .. # ********** For repository_name dls-mainiac
 
 Testing
@@ -35,4 +35,4 @@ This allows peeking in there to see what's been written by the test.
     
 
 
-.. # dae_devops_fingerprint da669122a38470f54ac7d65d96bbb265
+.. # dae_devops_fingerprint c86436441b88ce2e684a1255980a64ba

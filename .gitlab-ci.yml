@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.4.0.
+# ********** It has been generated automatically by dae_devops version 0.5.1.
 # ********** For repository_name dls-mainiac
 
 variables:
@@ -87,4 +87,4 @@ package_pip:
 #     # The validate_docs artifacts are in the build/html folder.
 #     - make -f .dae-devops/Makefile publish_docs
 
-# dae_devops_fingerprint 41eff2bc538ec10d98c0aa5cda48f8c7
+# dae_devops_fingerprint c64aad265e67d52f70b276f6e2b1b97c

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.4.0.
+# ********** It has been generated automatically by dae_devops version 0.5.1.
 # ********** For repository_name dls-mainiac
 
 me=${BASH_SOURCE}
@@ -13,4 +13,4 @@ function __install {
 }
 
 
-# dae_devops_fingerprint 425bdc4b6420ecc5764f1298090aeffa
+# dae_devops_fingerprint 32c4a266f1c1cb7a1043d0bdf2548738

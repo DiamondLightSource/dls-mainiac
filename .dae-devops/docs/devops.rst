@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.4.0.
+.. # ********** It has been generated automatically by dae_devops version 0.5.1.
 .. # ********** For repository_name dls-mainiac
 
 Devops
@@ -43,4 +43,4 @@ Publishing::
     
 
 
-.. # dae_devops_fingerprint 1f20cafa9f801abf5ce00e5f5cfd9e47
+.. # dae_devops_fingerprint d69cdc1e76b7b6776119729a1cfe48c9

@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.4.0.
+# ********** It has been generated automatically by dae_devops version 0.5.1.
 # ********** For repository_name dls-mainiac
 
 # ---------------------------------------------------------------------
@@ -69,4 +69,4 @@ publish_docs:
 	cp -r build/html/* $(DOCS_PUBLISH_ROOT)
 	
 
-# dae_devops_fingerprint 6a189e1f58e208dab98164f85d67c08a
+# dae_devops_fingerprint abd00978fdb0dca4f5b712aee934cad6

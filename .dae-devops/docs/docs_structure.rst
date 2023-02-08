@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.4.0.
+.. # ********** It has been generated automatically by dae_devops version 0.5.1.
 .. # ********** For repository_name dls-mainiac
 
 About the documentation
@@ -21,4 +21,4 @@ improve most documentation - often immensely.
 
 `More information on this topic. <https://documentation.divio.com>`_
 
-.. # dae_devops_fingerprint 5298bd3fa64ecd380d7d2f9df9f9dede
+.. # dae_devops_fingerprint 7dbb7e7b34455dfcd954c7f19d4dde5c

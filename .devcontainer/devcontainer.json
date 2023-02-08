@@ -1,5 +1,5 @@
 // ********** Please don't edit this file!
-// ********** It has been generated automatically by dae_devops version 0.4.0.
+// ********** It has been generated automatically by dae_devops version 0.5.1.
 // ********** For repository_name dls-mainiac
 
 // For format details, see https://containers.dev/implementors/json_reference/
@@ -57,4 +57,4 @@
     "postCreateCommand": "pip install -e .[dev]"
 }
 
-// dae_devops_fingerprint ffe3e33792acbb7f26883b28a712ea90
+// dae_devops_fingerprint 7e9af4818af531b00d42aaba98f1b3ee

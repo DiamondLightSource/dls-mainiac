@@ -1,5 +1,5 @@
 # ********** Please don't edit this file!
-# ********** It has been generated automatically by dae_devops version 0.4.0.
+# ********** It has been generated automatically by dae_devops version 0.5.1.
 # ********** For repository_name dls-mainiac
 
 name: Install requirements
@@ -61,4 +61,4 @@ runs:
       shell: bash
 
 
-# dae_devops_fingerprint ddea27112cf29c4b78891b234145ec56
+# dae_devops_fingerprint 36877b264008ed189f2e223bdf3c7def

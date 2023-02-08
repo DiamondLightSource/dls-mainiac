@@ -1,5 +1,5 @@
 .. # ********** Please don't edit this file!
-.. # ********** It has been generated automatically by dae_devops version 0.4.0.
+.. # ********** It has been generated automatically by dae_devops version 0.5.1.
 .. # ********** For repository_name dls-mainiac
 
 Contributing to the project
@@ -38,4 +38,4 @@ should follow.
 
 .. _Developer Guide: https://diamondlightsource.github.io/dls-mainiac/main/developer/how-to/contribute.html
 
-.. # dae_devops_fingerprint 6d52f7cf994efbc027e52fab1c936326
+.. # dae_devops_fingerprint ffeb92991ab473232d7bb1b6b7d7dc09
