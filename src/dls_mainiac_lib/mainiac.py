@@ -431,7 +431,8 @@ class Mainiac:
                 import graypy
 
                 # Create and enable graylog handler
-                if graypy_settings.get("protocol", "UDP") == "UDP":
+                protocol = graypy_settings.get("protocol", "UDP")
+                if protocol == "UDP":
                     graypy_handler_class = graypy.GELFUDPHandler
                 else:
                     graypy_handler_class = graypy.GELFTCPHandler
@@ -445,6 +446,10 @@ class Mainiac:
                 graypy_handler.setFormatter(DlsLogformatter(type="dls"))
                 graypy_handler.setLevel(logging.DEBUG)
                 logging.getLogger().addHandler(graypy_handler)
+
+                logger.debug(
+                    f"graypy logging handler enabled to {host}:{port} {protocol}"
+                )
 
             else:
                 graypy_handler = None
