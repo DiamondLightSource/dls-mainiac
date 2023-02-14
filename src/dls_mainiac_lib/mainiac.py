@@ -62,6 +62,28 @@ class Namespace:
     pass
 
 
+class Filterer:
+    """
+    Python logging filter which excludes messages from output.
+
+    Filters is a dict, for only only containing a markers list.
+
+    A marker is a string of the form [SOMETHING] and occur anywhere in the message.
+    """
+
+    def __init__(self, filters):
+        if filters is not None:
+            self.__markers = filters.get("markers", [])
+        else:
+            self.__markers = []
+
+    def filter(self, record):
+        for marker in self.__markers:
+            if marker in record.msg:
+                return 0
+        return 1
+
+
 class Mainiac:
     """
     Base class.  Handles details like logging.
@@ -157,6 +179,8 @@ class Mainiac:
             "goes belly up",
             "kicks the bucket",
             "croaks",
+            "bites the dust",
+            "rolls over",
             "pleads for help",
             "is lost",
             "displays frowny face",
@@ -392,6 +416,11 @@ class Mainiac:
                     console_handler.setFormatter(formatter)
                     # Log level for the console, not verbose.
                     console_handler.setLevel(logging.INFO)
+
+                # Possibly filter out messages.
+                console_filterer = Filterer(console_settings.get("filters"))
+                console_handler.addFilter(console_filterer)
+
             else:
                 console_handler = None
 
@@ -405,6 +434,10 @@ class Mainiac:
                     logfile_directory, logfile_settings
                 )
                 logfile_handler.setLevel(logging.DEBUG)
+
+                # Possibly filter out messages.
+                logfile_filterer = Filterer(logfile_settings.get("filters"))
+                logfile_handler.addFilter(logfile_filterer)
             else:
                 logfile_handler = None
 
@@ -446,6 +479,10 @@ class Mainiac:
                 graypy_handler.setFormatter(DlsLogformatter(type="dls"))
                 graypy_handler.setLevel(logging.DEBUG)
                 logging.getLogger().addHandler(graypy_handler)
+
+                # Possibly filter out messages.
+                graypy_filterer = Filterer(graypy_settings.get("filters"))
+                graypy_handler.addFilter(graypy_filterer)
 
                 logger.debug(
                     f"graypy logging handler enabled to {host}:{port} {protocol}"
