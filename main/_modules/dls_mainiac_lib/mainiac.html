@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dls_mainiac_lib.mainiac &#8212; dls-mainiac 4.0.3.dev1+gace6fa8 documentation</title>
+    <title>dls_mainiac_lib.mainiac &#8212; dls-mainiac 4.0.4.dev1+ge0c3285 documentation</title>
   
   
   
@@ -346,6 +346,28 @@
     <span class="k">pass</span>
 
 
+<span class="k">class</span> <span class="nc">Filterer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Python logging filter which excludes messages from output.</span>
+
+<span class="sd">    Filters is a dict, for only only containing a markers list.</span>
+
+<span class="sd">    A marker is a string of the form [SOMETHING] and occur anywhere in the message.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filters</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">filters</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__markers</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;markers&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__markers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__markers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">record</span><span class="o">.</span><span class="n">msg</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+
 <div class="viewcode-block" id="Mainiac"><a class="viewcode-back" href="../../api/classes.html#dls_mainiac_lib.mainiac.Mainiac">[docs]</a><span class="k">class</span> <span class="nc">Mainiac</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class.  Handles details like logging.</span>
@@ -441,6 +463,8 @@
             <span class="s2">&quot;goes belly up&quot;</span><span class="p">,</span>
             <span class="s2">&quot;kicks the bucket&quot;</span><span class="p">,</span>
             <span class="s2">&quot;croaks&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bites the dust&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rolls over&quot;</span><span class="p">,</span>
             <span class="s2">&quot;pleads for help&quot;</span><span class="p">,</span>
             <span class="s2">&quot;is lost&quot;</span><span class="p">,</span>
             <span class="s2">&quot;displays frowny face&quot;</span><span class="p">,</span>
@@ -676,6 +700,11 @@
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
                     <span class="c1"># Log level for the console, not verbose.</span>
                     <span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+                <span class="c1"># Possibly filter out messages.</span>
+                <span class="n">console_filterer</span> <span class="o">=</span> <span class="n">Filterer</span><span class="p">(</span><span class="n">console_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filters&quot;</span><span class="p">))</span>
+                <span class="n">console_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">console_filterer</span><span class="p">)</span>
+
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">console_handler</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -689,6 +718,10 @@
                     <span class="n">logfile_directory</span><span class="p">,</span> <span class="n">logfile_settings</span>
                 <span class="p">)</span>
                 <span class="n">logfile_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+                <span class="c1"># Possibly filter out messages.</span>
+                <span class="n">logfile_filterer</span> <span class="o">=</span> <span class="n">Filterer</span><span class="p">(</span><span class="n">logfile_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filters&quot;</span><span class="p">))</span>
+                <span class="n">logfile_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">logfile_filterer</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">logfile_handler</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -730,6 +763,10 @@
                 <span class="n">graypy_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">DlsLogformatter</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;dls&quot;</span><span class="p">))</span>
                 <span class="n">graypy_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
                 <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">graypy_handler</span><span class="p">)</span>
+
+                <span class="c1"># Possibly filter out messages.</span>
+                <span class="n">graypy_filterer</span> <span class="o">=</span> <span class="n">Filterer</span><span class="p">(</span><span class="n">graypy_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;filters&quot;</span><span class="p">))</span>
+                <span class="n">graypy_handler</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="n">graypy_filterer</span><span class="p">)</span>
 
                 <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s2">&quot;graypy logging handler enabled to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">protocol</span><span class="si">}</span><span class="s2">&quot;</span>
